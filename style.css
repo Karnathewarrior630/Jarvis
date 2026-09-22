@@ -1,1 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+:root {
+    --cyan: #00eaff;
+    --blue: #008cff;
+    --dark: #02070d;
+    --panel: rgba(0, 20, 35, 0.65);
+    --text: #d9fbff;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at center, #06243a 0%, #02070d 45%, #000 100%);
+
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Background */
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(0, 234, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 234, 255, 0.06) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+    );
+}
+
+/* Main */
+
+.jarvis {
+    width: min(1100px, 94%);
+    margin: auto;
+    padding: 20px 0 30px;
+}
+
+/* Top bar */
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 20px;
+
+    border: 1px solid rgba(0, 234, 255, 0.4);
+    background: rgba(0, 20, 35, 0.55);
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.dot {
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+    background: #00ff88;
+
+    box-shadow: 0 0 15px #00ff88;
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    padding: 60px 10px 40px;
+}
+
+.reactor {
+    position: relative;
+
+    width: 280px;
+    height: 280px;
+
+    margin: auto;
+}
+
+.ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 2px solid var(--cyan);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.ring1 {
+    width: 270px;
+    height: 270px;
+
+    border-style: dashed;
+
+    animation: rotate 15s linear infinite;
+}
+
+.ring2 {
+    width: 220px;
+    height: 220px;
+
+    border-left-color: transparent;
+    border-right-color: transparent;
+
+    animation: rotateReverse 8s linear infinite;
+}
+
+.ring3 {
+    width: 165px;
+    height: 165px;
+
+    border-style: dotted;
+
+    animation: rotate 5s linear infinite;
+}
+
+.core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 105px;
+    height: 105px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        white 0%,
+        #5ff6ff 20%,
+        #00a8ff 45%,
+        #004d80 70%,
+        transparent 72%
+    );
+
+    box-shadow:
+        0 0 25px var(--cyan),
+        0 0 60px var(--blue);
+
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.core span {
+    color: white;
+
+    font-size: 45px;
+    font-weight: bold;
+
+    text-shadow: 0 0 15px #fff;
+}
+
+h1 {
+    margin-top: 30px;
+
+    font-size: clamp(38px, 8vw, 72px);
+
+    letter-spacing: 12px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px var(--cyan),
+        0 0 30px var(--blue);
+}
+
+.subtitle {
+    margin-top: 10px;
+
+    color: #75dfea;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+.status {
+    margin: 25px auto;
+
+    color: var(--cyan);
+
+    font-size: 14px;
+    letter-spacing: 3px;
+
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+/* Button */
+
+.mic-button {
+    padding: 16px 30px;
+
+    border: 1px solid var(--cyan);
+    border-radius: 30px;
+
+    background: rgba(0, 234, 255, 0.08);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.25);
+
+    transition: 0.3s;
+}
+
+.mic-button:hover {
+    background: var(--cyan);
+
+    color: #001018;
+
+    box-shadow:
+        0 0 20px var(--cyan),
+        0 0 50px var(--cyan);
+}
+
+.mic-button.listening {
+    background: #ff3b3b;
+
+    border-color: #ff7777;
+
+    box-shadow: 0 0 30px #ff3b3b;
+}
+
+/* Dashboard */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.panel {
+    min-height: 130px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(0, 234, 255, 0.35);
+
+    background: var(--panel);
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 234, 255, 0.03),
+        0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.panel h2 {
+    margin-bottom: 15px;
+
+    color: var(--cyan);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.panel p {
+    color: #c7faff;
+
+    line-height: 1.6;
+}
+
+/* System */
+
+.system {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.system-card {
+    padding: 18px;
+
+    text-align: center;
+
+    border: 1px solid rgba(0, 234, 255, 0.25);
+
+    background: rgba(0, 20, 35, 0.5);
+}
+
+.system-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    color: #78aab3;
+
+    letter-spacing: 2px;
+}
+
+.system-card strong {
+    color: var(--cyan);
+
+    font-size: 14px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 35px;
+
+    text-align: center;
+
+    color: #4d7f88;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+/* Animations */
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes rotateReverse {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.12);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .jarvis {
+        width: 92%;
+    }
+
+    .top-bar {
+        font-size: 10px;
+    }
+
+    .reactor {
+        width: 230px;
+        height: 230px;
+    }
+
+    .ring1 {
+        width: 220px;
+        height: 220px;
+    }
+
+    .ring2 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .ring3 {
+        width: 135px;
+        height: 135px;
+    }
+
+    .core {
+        width: 85px;
+        height: 85px;
+    }
+
+    .core span {
+        font-size: 35px;
+    }
+
+    h1 {
+        letter-spacing: 6px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .system {
+        grid-template-columns: repeat(2, 1fr);
+    }
+          }
