@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>J.A.R.V.I.S. AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <main class="jarvis">
+
+        <header class="top-bar">
+            <div>
+                <span class="dot"></span>
+                SYSTEM ONLINE
+            </div>
+
+            <div id="clock">00:00:00</div>
+        </header>
+
+        <section class="hero">
+
+            <div class="reactor">
+                <div class="ring ring1"></div>
+                <div class="ring ring2"></div>
+                <div class="ring ring3"></div>
+
+                <div class="core">
+                    <span>J</span>
+                </div>
+            </div>
+
+            <h1>J.A.R.V.I.S.</h1>
+
+            <p class="subtitle">
+                JUST A RATHER VERY INTELLIGENT SYSTEM
+            </p>
+
+            <div id="status" class="status">
+                READY
+            </div>
+
+            <button id="micButton" class="mic-button">
+                🎙 START JARVIS
+            </button>
+
+        </section>
+
+        <section class="dashboard">
+
+            <div class="panel">
+                <h2>USER COMMAND</h2>
+                <p id="userText">Waiting for command...</p>
+            </div>
+
+            <div class="panel">
+                <h2>JARVIS RESPONSE</h2>
+                <p id="jarvisText">
+                    Good day, sir. How may I assist you?
+                </p>
+            </div>
+
+        </section>
+
+        <section class="system">
+
+            <div class="system-card">
+                <span>CPU</span>
+                <strong id="cpu">ONLINE</strong>
+            </div>
+
+            <div class="system-card">
+                <span>VOICE</span>
+                <strong id="voice">READY</strong>
+            </div>
+
+            <div class="system-card">
+                <span>NETWORK</span>
+                <strong id="network">CHECKING</strong>
+            </div>
+
+            <div class="system-card">
+                <span>TIME</span>
+                <strong id="time">--:--</strong>
+            </div>
+
+        </section>
+
+        <footer>
+            J.A.R.V.I.S. WEB ASSISTANT • GITHUB READY
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
